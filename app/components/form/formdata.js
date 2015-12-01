@@ -5,7 +5,14 @@ var formData = {
         'formTitle': 'Form Title',
         inputs: [{
             'required': true,
-            'inputId': 'userPassword',
+            'inputId': 'firstPassword',
+            'label': 'Password',
+            'type': 'password',
+            'maxlength': '12',
+            'minlength': '5'
+        }, {
+            'required': true,
+            'inputId': 'password',
             'label': 'Password',
             'type': 'password',
             'maxlength': '12',
@@ -13,6 +20,7 @@ var formData = {
         }, {
             'required': false,
             'inputId': 'firstName',
+            'placeholder': 'wacgt',
             'label': 'First name',
             'type': 'text',
             'minlength': '2'
@@ -23,8 +31,7 @@ var formData = {
             'label': 'What\'s your age?',
             'options': [{
                 'value': 'null',
-                'option': '',
-                'title': true
+                'option': ''
             }, {
                 'option': '0-19',
                 'value': '11'
@@ -52,7 +59,9 @@ var formData = {
             }, {
                 'value': 'who cares',
                 'option': 'who cares'
-            }]
+            }],
+            'formButton': 'Or add another gender',
+            'href': '#'
         }],
         'textareas': [{
             'required': true,
@@ -63,6 +72,7 @@ var formData = {
         'cancel': true,
         'buttons': [{
             'class': 'solid-button--happy',
+            'buttonLoader': true,
             'content': 'Doe doe'
         }]
     }

@@ -2,9 +2,13 @@
 // Base form
 // -----------------------------------------------------------------------------
 .form {
-    // margin-top: 1em;
+    // margin-top: 3em;
+    .input-required {
+        color: $text-color--soft;
+        font-weight: $font-weight--regular;
+    }
     .form__input {
-        margin-top: 2em;
+        padding-top: 2em;
         margin-bottom: -.5em;
         // padding-top: 2em;
         // background: tomato;
@@ -86,8 +90,13 @@
         margin: -.5em 0 .5em 0;
         color: $sec-red;
     }
+    .form__link {
+      margin-top: 2.2em;
+    }
     .form__select {
-        display: block;
+        // display: inline-block;
+        width: 100%;
+        // float: left;
         margin-top: 2em;
         // margin-bottom: 1em;
         label {
@@ -96,8 +105,9 @@
             position: relative;
             pointer-events: none;
             margin-left: .5em;
+            width: 100%;
             padding: .5em;
-            bottom: 5em;
+            bottom: 5.2em;
             transition: 0.2s ease all !important;
             -moz-transition: 0.2s ease all !important;
             -webkit-transition: 0.2s ease all !important;
@@ -119,7 +129,8 @@
             }
         }
         .selectric-wrapper {
-          display: block;
+          display: inline-block;
+          width: 100%;
         }
     }
     .form__textarea {

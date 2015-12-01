@@ -84,7 +84,7 @@ ui.component.alert = (function($, T) {
         'icon': 'icon-solid-fire',
         'title': 'Oops!',
         'class': 'solid-alert--angry',
-        'message': 'That e-mail address already exists.',
+        'message': 'That e-mail addrhat e-mail address already exists.ess already exhat e-mail address already exists.ists.',
         'link': 'Forgot your password?',
         'href': '#',
         'button': [{
@@ -149,15 +149,17 @@ ui.component.appbar = (function($, T) {
             'item': 'Past events',
             'class': 'nav--active divider'
         }, {
-            'url': '#',
-            'item': 'Upcoming events'
+            'url': 'ui-components.html',
+            'item': 'Upcoming eventse'
         }],
         'button': [{
             'class': 'solid-button--strict pull-right',
-            'content': 'Add new event'
+            'content': 'Add newr event',
+            'action': 'dit'
         }]
     }
-};var ui = ui || {};
+}
+;var ui = ui || {};
 
 ui.component.appblock = (function($, T) {
 
@@ -356,22 +358,28 @@ clickButton = function() {
         'buttons': [{
             'content': 'Meetings',
             'class': 'naked-button--neutral',
+            'buttonLoader': true
         }, {
             'content': 'Like',
-            'class': 'naked-button--happy'
+            'class': 'naked-button--happy',
+            'buttonLoader': true
         }, {
             'content': 'Back',
-            'class': 'naked-button--strict'
+            'class': 'naked-button--strict',
+            'buttonLoader': true
         }, {
             'content': 'Destroy',
-            'class': 'naked-button--angry'
+            'class': 'naked-button--angry',
+            'buttonLoader': true
         }, {
             'content': 'Menu',
             'class': 'naked-button--neutral',
-            'icon': 'icon-system-menu'
+            'icon': 'icon-system-menu',
+            'buttonLoader': true
         }, {
             'icon': 'icon-solid-camera',
-            'class': 'naked-button--neutral'
+            'class': 'naked-button--neutral',
+            'buttonLoader': true
         }]
     },
     'buttonData2': {
@@ -407,23 +415,29 @@ clickButton = function() {
         'styleguide': true,
         'buttons': [{
             'content': 'Cancel',
-            'class': 'solid-button--neutral'
+            'class': 'solid-button--neutral',
+            'buttonLoader': true
         }, {
-            'content': 'Share post',
-            'class': 'solid-button--happy'
+            'content': 'Sha',
+            'class': 'solid-button--happy',
+            'buttonLoader': true
         }, {
             'content': 'Check availability',
-            'class': 'solid-button--strict'
+            'class': 'solid-button--strict',
+            'buttonLoader': true
         }, {
             'content': 'Delete user',
-            'class': 'solid-button--angry'
+            'class': 'solid-button--angry',
+            'buttonLoader': true
         }, {
             'content': 'Settings',
             'icon': 'icon-solid-settings',
+            'buttonLoader': true,
             'class': 'solid-button--neutral'
         }, {
             'icon': 'icon-user-arrow-right',
-            'class': 'solid-button--strict'
+            'class': 'solid-button--strict',
+            'buttonLoader': true
         }]
     },
     'buttonData4': {
@@ -512,6 +526,65 @@ ui.component.composer = (function($, T) {
     }
 };var ui = ui || {};
 
+ui.component.cropper = (function($, T) {
+
+    /**
+     * cropper
+     * @type {Object}
+     */
+    var params = {
+        'buttons': null,
+        'input': null
+    };
+
+    /**
+     * render
+     *
+     * @todo make this method extended or mixin
+     * @param {} cropper object with all properties
+     * @return compiled handlebars template
+     */
+    function render(context) {
+
+
+        data = $.extend({}, params, context);
+
+
+        return T.cropper(data);
+    }
+
+    return {
+        render: render
+    };
+
+}(jQuery, ui.component.template));
+;var cropperData = {
+    'cropperData1': {
+        'imageSrc': '/images/frog.jpg',
+        'cropperLabel': 'Profile picture',
+        'uploadNewButtonText': 'Upload new',
+        'CropImageButtonText': 'Crop image',
+        'cancelCropButtonText': 'Cancel',
+        'saveCropButtonText': 'Save',
+        'fileName': 'image',
+        // 'hideCropper': true,
+        'formId': 'userSettingsForm',
+        'community': false
+    },
+    'cropperData2': {
+        'imageSrc': '/images/logo_transp.png',
+        'cropperLabel': 'Community image',
+        'uploadNewButtonText': 'Upload new',
+        'CropImageButtonText': 'Crop image',
+        'cancelCropButtonText': 'Cancel',
+        'saveCropButtonText': 'Save',
+        'fileName': 'image',
+        'formId': 'userSettingsForm',
+        'community': true
+    }
+}
+;var ui = ui || {};
+
 ui.component.dialog = (function($, T) {
 
     /**
@@ -550,6 +623,7 @@ ui.component.dialog = (function($, T) {
 (jQuery, ui.component.template));var dialogData = {
     'dialogData1': {
         'angry': 'true',
+        'styleguide': 'true',
         'title': 'Deleting this is permanent.',
         'message': 'Are you sure you want to delete your account?',
         'button': [{
@@ -562,6 +636,7 @@ ui.component.dialog = (function($, T) {
     },
     'dialogData2': {
         'title': 'Do you wish to create a new community?',
+        'styleguide': 'true',
         'message': 'You should only create a new community if you are setting one up in a new coworking space.',
         'button': [{
             'content': 'Create community',
@@ -639,9 +714,13 @@ ui.component.dropdown = (function($, T) {
 }(jQuery, ui.component.template));
 ;var dropdownData = {
     'dropdownData1': {
+      'dropdownItem': 'My settings',
         'icon': 'icon-naked-bell',
         'badge': 'true',
         'dropdownOptions': [{
+            'optionCat': true,
+            'option': 'Category'            
+        }, {
             'option': 'Profile',
             'href': '#'
         }, {
@@ -785,7 +864,14 @@ ui.component.form = (function($, T) {
         'formTitle': 'Form Title',
         inputs: [{
             'required': true,
-            'inputId': 'userPassword',
+            'inputId': 'firstPassword',
+            'label': 'Password',
+            'type': 'password',
+            'maxlength': '12',
+            'minlength': '5'
+        }, {
+            'required': true,
+            'inputId': 'password',
             'label': 'Password',
             'type': 'password',
             'maxlength': '12',
@@ -793,6 +879,7 @@ ui.component.form = (function($, T) {
         }, {
             'required': false,
             'inputId': 'firstName',
+            'placeholder': 'wacgt',
             'label': 'First name',
             'type': 'text',
             'minlength': '2'
@@ -803,8 +890,7 @@ ui.component.form = (function($, T) {
             'label': 'What\'s your age?',
             'options': [{
                 'value': 'null',
-                'option': '',
-                'title': true
+                'option': ''
             }, {
                 'option': '0-19',
                 'value': '11'
@@ -832,7 +918,9 @@ ui.component.form = (function($, T) {
             }, {
                 'value': 'who cares',
                 'option': 'who cares'
-            }]
+            }],
+            'formButton': 'Or add another gender',
+            'href': '#'
         }],
         'textareas': [{
             'required': true,
@@ -843,6 +931,7 @@ ui.component.form = (function($, T) {
         'cancel': true,
         'buttons': [{
             'class': 'solid-button--happy',
+            'buttonLoader': true,
             'content': 'Doe doe'
         }]
     }
@@ -885,7 +974,7 @@ ui.component.header = (function($, T) {
 ;var headerData = {
     'headerData1': {
         'logo': {
-            'src': 'https://welcome.mrwatson.com/views/ass/img/logo.png'
+            'src': '/images/logo_transp.png'
         },
         'input': {
             'placeholder': 'Seach for colors or whatever'
@@ -896,12 +985,17 @@ ui.component.header = (function($, T) {
             'class': 'nav--active divider'
         }, {
             'url': '/ui-components.html',
+            'class': 'divider',
             'item': 'UI components'
+        }, {
+            'icon': 'icon-user-github',
+            'url': 'https://github.com/mrwatson-oss/nova',
+            'item': ''
         }]
     },
     'headerData2': {
         'logo': {
-            'src': '/images/logo.png'
+            'src': '/images/logo_transp.png'
         },
         'input': {
             'placeholder': 'Seach for components or whatever'
@@ -911,19 +1005,62 @@ ui.component.header = (function($, T) {
             'item': 'UI base',
             'class': 'divider'
         }, {
-
             'url': '#',
             'item': 'UI components',
-            'class': 'nav--active'
+            'class': 'divider nav--active'
+        }, {
+            'icon': 'icon-user-github',
+            'url': 'https://github.com/mrwatson-oss/nova',
+            'item': ''
         }]
     },
     'headerData3': {
+        'settings': true,
+        'styleguide': true,
+        'dropdown': [{
+            'dropdownItem': 'Settings',
+            'icon': 'icon-system-down-open',
+            'dropdownOptions': [{
+                'option': 'Profile',
+                'href': '#'
+            }, {
+                'option': 'Company',
+                'href': '#',
+                'class': 'divider'
+            }, {
+                'option': 'Log out',
+                'href': '#'
+            }]
+        }]
+    },
+    'headerData4': {
+        'settings': true,
+        'styleguide': true,
+        'headerMobile': true,
+        'headerMobileNavTitle': 'Mobile user settings',
+        'dropdown': [{
+            'icon': 'icon-solid-menu',
+            // 'dropdownItem': 'Settings',
+            'dropdownOptions': [{
+                'optionCat': true,
+                'option': 'User settings'
+            }, {
+                'option': 'Profile',
+                'href': '#'
+            },{
+                'option': 'Company',
+                'href': '#',
+                'class': 'divider'
+            }, {
+                'option': 'Log out',
+                'href': '#'
+            }]
+        }]
+    },
+    'headerData5': {
         'styleguide': true,
         'logo': {
-            'src': '/images/logo.png'
-        },
-        'input': {
-            'placeholder': 'Search bar..'
+            'src': '/images/logo_transp.png'
         },
         'dropdown': [{
             'icon': 'icon-naked-settings',
@@ -957,7 +1094,7 @@ ui.component.header = (function($, T) {
                 'class': 'divider'
             }]
         }]
-    }
+      }
 }
 ;var ui = ui || {};
 
@@ -1166,7 +1303,7 @@ ui.component.icon = (function($, T) {
             'icon': 'icon-user-mobile',
             'label': true
         }, {
-            'icon': 'user-monitor',
+            'icon': 'icon-user-monitor',
             'label': true
         }, {
             'icon': 'icon-user-suitcase',
@@ -1374,6 +1511,14 @@ ui.component.nav = (function($, T) {
             'item': 'Composer',
             'icon': 'icon-user-naked-pencil blue'
         }, {
+            'url': '#anchor-cropper',
+            'item': 'Cropper',
+            'icon': 'icon-naked-crop blue'
+        }, {
+            'url': '#anchor-form',
+            'item': 'Form',
+            'icon': 'icon-app-naked-notebook blue'
+        }, {
             'url': '#anchor-header',
             'item': 'Header',
             'icon': 'icon-app-naked-school blue'
@@ -1384,7 +1529,7 @@ ui.component.nav = (function($, T) {
         }, {
             'url': '#anchor-input',
             'item': 'Input Fields',
-            'icon': 'icon-app-naked-notebook blue'
+            'icon': 'icon-app-naked-pen blue'
         }, {
             'url': '#anchor-messages',
             'item': 'Messages',
@@ -1396,7 +1541,7 @@ ui.component.nav = (function($, T) {
         }, {
             'url': '#anchor-postits',
             'item': 'Post-it&#39;s',
-            'icon': 'icon-app-naked-pen blue'
+            'icon': 'icon-app-naked-filter blue'
         }]
     },
     'navData4': {
@@ -1488,8 +1633,8 @@ ui.component.partials = (function($, T) {
             });
             Handlebars.registerPartial({
                 'PartialAvatar': '{{#if avatar}}{{#avatar}}<div class="avatar {{#if small}}avatar--small{{/if}} {{#if round}} round{{/if}}"><img {{#if src}}src="{{src}}" {{else}}src="https://www.filepicker.io/api/file/Xr1rtfRBRd6HVNVynfMu"{{/if}} alt="avatar"></div>{{/avatar}}{{else}}<div class="avatar {{#if small}}avatar--small{{/if}}"><img src="https://www.filepicker.io/api/file/Xr1rtfRBRd6HVNVynfMu" alt="avatar"/></div>{{/if}}',
-                'PartialButton': '<button {{#if disabled}}disabled{{/if}} class="btn {{class}} {{#if icon}}icon-only{{/if}}" id="{{id}}" name="{{name}}" type="{{type}}" value="{{value}}" onclick="{{action}}" {{#if cancel}} formnovalidate {{/if}}>{{#if iconOnly}}{{#if icon}}<i class="icon {{icon}}"></i>{{/if}}{{else}}{{#if icon}}<i class="icon {{icon}}"></i> {{/if}}{{#if content}}{{content}}{{/if}}{{/if}}</button>',
-                'PartialDropdown': '<li class="dropdown" id="dropdown">{{#if icon}}<i class="{{icon}}"></i>{{/if}}{{{dropdownItem}}}{{#if badge}}<span class="dropdown-badge">{{dropdownOptions.length}}</span>{{/if}}<ul class="nav drop-nav">{{#each dropdownOptions}}<li><a id="{{id}}" class="{{class}}" href="{{href}}">{{option}}</a></li>{{/each}}</ul><script>{{script}}</script></li>',
+                'PartialButton': '<button {{#if disabled}}disabled{{/if}} class="btn {{class}} {{#if icon}}icon-only{{/if}}" id="{{id}}" name="{{name}}" type="{{type}}" value="{{value}}" onclick="{{action}}" {{#if cancel}} formnovalidate {{/if}}>{{#if buttonLoader}} <div class="btn__loading-container"><span class="btn__loading-circle">&nbsp;</span><span class="btn__loading-circle">&nbsp;</span><span class="btn__loading-circle">&nbsp;</span><span class="btn__loading-circle">&nbsp;</span></div>{{/if}} {{#if iconOnly}}{{#if icon}}<i class="icon {{icon}}"></i>{{/if}}{{else}}{{#if icon}}<i class="icon {{icon}}"></i> {{/if}}{{#if content}} {{content}} {{/if}} {{/if}}</button>',
+                'PartialDropdown': '<li class="dropdown" id="dropdown"><span class="dropdown-item"><h4>{{{dropdownItem}}}</h4></span>{{#if icon}}<i class="{{icon}}"></i>{{/if}}{{#if badge}}<span class="dropdown-badge">{{dropdownOptions.length}}</span>{{/if}}<ul class="nav drop-nav">{{#each dropdownOptions}}<li>{{#if optionCat}}<div class="option-catagory">{{option}}</div>{{else}}<a id="{{id}}"class="{{class}}"href="{{href}}">{{option}}</a>{{/if}}</li>{{/each}}</ul><script>{{script}}</script></li>',
                 'PartialTextInput': ui.component.textInput.render({
                     'class': '{{class}}',
                     'id': '{{id}}',
@@ -1501,12 +1646,13 @@ ui.component.partials = (function($, T) {
                 }),
                 'PartialTextarea': '<div class="text-area {{class}}"><textarea class="autoExpand" rows="0" data-min-rows="1" {{#if background}}class="text-input__grey"{{/if}} {{#if required}}required{{/if}} name="{{name}}" id="{{id}}" type="text" placeholder="{{placeholder}}" value="{{value}}"></textarea></div>',
                 'PartialPostItActionBar': '<div class="post-it__action-bar"><div class="row"><div class="col-xs-12"><div class="post-it__actions">{{#each postitActions}}{{>PartialButton}}{{/each}}{{#if postitLikes}}{{#postitLikes}}<a class="naked-button--strict pull-right">{{number}} people like this</a>{{/postitLikes}}{{/if}}</div></div><div class="col-xs-12"><div class="app-block--no-bg"><div class="post-it__comments" class="post-it__comments">{{#if comments}}<div class="row"><div class="col-xs-12">{{#each comments}}<div class="comment-author-avatar">{{>PartialAvatar}}</div><div class="comment--meta"><span class="comment-author">{{author}} </span> <span class="comment-timestamp"> {{timestamp}}</span></div><div class="comment-content"><p>{{{content}}}</p></div>{{/each}}</div></div>{{/if}}</div>{{#if commentInputField}}<div class="post-it__input-field">{{#commentInputField}}<div class="row"><div class="col-xs-12"><div class="comment-author-avatar">{{>PartialAvatar}}</div><div class="comment__text-input">{{>PartialTextInput}}</div><div class="comment__text-input-button">{{>PartialButton class="solid-button--happy pull-right"}}</div></div></div>{{/commentInputField}}</div>{{/if}}</div></div></div></div>',
-                'PartialIcon': '<i class="{{icon}} {{class}}"></i>{{#if label}}<pre class="language-markup"><code class="language-markup">{{icon}}</code></pre>{{/if}}',
+                'PartialIcon': '<i class="icon {{icon}} {{class}} {{color}}"></i>{{#if label}}<pre class="language-markup"><code class="language-markup">{{icon}}</code></pre>{{/if}}',
                 'PartialCoverImage': ui.component.image.render({
                     'cover': true,
                     'src': '{{{src}}}',
                     'alt': '{{alt}}'
                 }),
+                'PartialLoading': '<div class="btn__loader"><div class="btn--loading"><div class="btn__loading-circle">&nbsp;</div><div class="btn__loading-circle">&nbsp;</div><div class="btn__loading-circle">&nbsp;</div><div class="btn__loading-circle">&nbsp;</div></div></div>',
                 'PartialCommunitySwitch': '<div class="community-switch" style="background: no-repeat center url({{src}})"><span class="community-switch-name">{{name}}{{#if icon}}<i class="icon {{icon}}"></i>{{/if}}</span></div>',
                 'PartialNavItem': '<li><a class="{{class}} "href="{{baseurl}}{{url}}">{{#if icon}}<i class="icon {{icon}}"></i>{{/if}}{{{item}}}</a></li>'
             });

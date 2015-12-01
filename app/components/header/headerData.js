@@ -1,7 +1,7 @@
 var headerData = {
     'headerData1': {
         'logo': {
-            'src': 'https://welcome.mrwatson.com/views/ass/img/logo.png'
+            'src': '/images/logo_transp.png'
         },
         'input': {
             'placeholder': 'Seach for colors or whatever'
@@ -12,12 +12,17 @@ var headerData = {
             'class': 'nav--active divider'
         }, {
             'url': '/ui-components.html',
+            'class': 'divider',
             'item': 'UI components'
+        }, {
+            'icon': 'icon-user-github',
+            'url': 'https://github.com/mrwatson-oss/nova',
+            'item': ''
         }]
     },
     'headerData2': {
         'logo': {
-            'src': '/images/logo.png'
+            'src': '/images/logo_transp.png'
         },
         'input': {
             'placeholder': 'Seach for components or whatever'
@@ -27,19 +32,62 @@ var headerData = {
             'item': 'UI base',
             'class': 'divider'
         }, {
-
             'url': '#',
             'item': 'UI components',
-            'class': 'nav--active'
+            'class': 'divider nav--active'
+        }, {
+            'icon': 'icon-user-github',
+            'url': 'https://github.com/mrwatson-oss/nova',
+            'item': ''
         }]
     },
     'headerData3': {
+        'settings': true,
+        'styleguide': true,
+        'dropdown': [{
+            'dropdownItem': 'Settings',
+            'icon': 'icon-system-down-open',
+            'dropdownOptions': [{
+                'option': 'Profile',
+                'href': '#'
+            }, {
+                'option': 'Company',
+                'href': '#',
+                'class': 'divider'
+            }, {
+                'option': 'Log out',
+                'href': '#'
+            }]
+        }]
+    },
+    'headerData4': {
+        'settings': true,
+        'styleguide': true,
+        'headerMobile': true,
+        'headerMobileNavTitle': 'Mobile user settings',
+        'dropdown': [{
+            'icon': 'icon-solid-menu',
+            // 'dropdownItem': 'Settings',
+            'dropdownOptions': [{
+                'optionCat': true,
+                'option': 'User settings'
+            }, {
+                'option': 'Profile',
+                'href': '#'
+            },{
+                'option': 'Company',
+                'href': '#',
+                'class': 'divider'
+            }, {
+                'option': 'Log out',
+                'href': '#'
+            }]
+        }]
+    },
+    'headerData5': {
         'styleguide': true,
         'logo': {
-            'src': '/images/logo.png'
-        },
-        'input': {
-            'placeholder': 'Search bar..'
+            'src': '/images/logo_transp.png'
         },
         'dropdown': [{
             'icon': 'icon-naked-settings',
@@ -73,5 +121,5 @@ var headerData = {
                 'class': 'divider'
             }]
         }]
-    }
+      }
 }
